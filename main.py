@@ -5,7 +5,6 @@ import random
 import math
 import os
 
-
 pygame.init()
 
 left_wall = 150
@@ -20,14 +19,15 @@ class Entity:
         self.target_x = target_x
         self.target_y = target_y
         self.weights = []
-        self.weights_quantity = 64
+        self.weights_quantity = 68 + 1
         self.color = (random.randint(10, 255), random.randint(10, 255), random.randint(10, 255))
         self.position_x = 180
         self.position_y = 50
         self.velocity_x = 0
         self.velocity_y = 0
+        self.acceleration = 0.00001
 
-        if best_weights != []:
+        if best_weights:
             self.weights = best_weights
             self.modify_weight()
         else:
@@ -42,6 +42,7 @@ class Entity:
         i5 = self.target_y - self.position_y
         i6 = self.velocity_x
         i7 = self.velocity_y
+        i8 = self.acceleration
 
         rc0 = (i0 * self.weights[0] +
                i1 * self.weights[1] +
@@ -50,78 +51,83 @@ class Entity:
                i4 * self.weights[4] +
                i5 * self.weights[5] +
                i6 * self.weights[6] +
-               i7 * self.weights[7]
+               i7 * self.weights[7] +
+               i8 * self.weights[8]
         )
-        rc1 = (i0 * self.weights[8] +
-               i1 * self.weights[9] +
-               i2 * self.weights[10] +
-               i3 * self.weights[11] +
-               i4 * self.weights[12] +
-               i5 * self.weights[13] +
-               i6 * self.weights[14] +
-               i7 * self.weights[15]
+        rc1 = (i0 * self.weights[9] +
+               i1 * self.weights[10] +
+               i2 * self.weights[11] +
+               i3 * self.weights[12] +
+               i4 * self.weights[13] +
+               i5 * self.weights[14] +
+               i6 * self.weights[15] +
+               i7 * self.weights[16] +
+               i8 * self.weights[17]
         )
-        rc2 = (i0 * self.weights[16] +
-               i1 * self.weights[17] +
-               i2 * self.weights[18] +
-               i3 * self.weights[19] +
-               i4 * self.weights[20] +
-               i5 * self.weights[21] +
-               i6 * self.weights[22] +
-               i7 * self.weights[23]
+        rc2 = (i0 * self.weights[18] +
+               i1 * self.weights[19] +
+               i2 * self.weights[20] +
+               i3 * self.weights[21] +
+               i4 * self.weights[22] +
+               i5 * self.weights[23] +
+               i6 * self.weights[24] +
+               i7 * self.weights[25] +
+               i8 * self.weights[26]
         )
-        rc3 = (i0 * self.weights[24] +
-               i1 * self.weights[25] +
-               i2 * self.weights[26] +
-               i3 * self.weights[27] +
-               i4 * self.weights[28] +
-               i5 * self.weights[29] +
-               i6 * self.weights[30] +
-               i7 * self.weights[31]
+        rc3 = (i0 * self.weights[27] +
+               i1 * self.weights[28] +
+               i2 * self.weights[29] +
+               i3 * self.weights[30] +
+               i4 * self.weights[31] +
+               i5 * self.weights[32] +
+               i6 * self.weights[33] +
+               i7 * self.weights[34] +
+               i8 * self.weights[35]
         )
-        rc4 = (i0 * self.weights[32] +
-               i1 * self.weights[33] +
-               i2 * self.weights[34] +
-               i3 * self.weights[35] +
-               i4 * self.weights[36] +
-               i5 * self.weights[37] +
-               i6 * self.weights[38] +
-               i7 * self.weights[39]
+        rc4 = (i0 * self.weights[36] +
+               i1 * self.weights[37] +
+               i2 * self.weights[38] +
+               i3 * self.weights[39] +
+               i4 * self.weights[40] +
+               i5 * self.weights[41] +
+               i6 * self.weights[42] +
+               i7 * self.weights[43] +
+               i8 * self.weights[44]
         )
 
-        r0 = (rc0 * self.weights[40] +
-              rc1 * self.weights[41] +
-              rc2 * self.weights[42] +
-              rc3 * self.weights[43] +
-              rc4 * self.weights[44]
-        )
-        r1 = (rc0 * self.weights[45] +
+        r0 = (rc0 * self.weights[45] +
               rc1 * self.weights[46] +
               rc2 * self.weights[47] +
               rc3 * self.weights[48] +
               rc4 * self.weights[49]
         )
-        r2 = (rc0 * self.weights[50] +
+        r1 = (rc0 * self.weights[50] +
               rc1 * self.weights[51] +
               rc2 * self.weights[52] +
               rc3 * self.weights[53] +
               rc4 * self.weights[54]
         )
-        r3 = (rc0 * self.weights[55] +
+        r2 = (rc0 * self.weights[55] +
               rc1 * self.weights[56] +
               rc2 * self.weights[57] +
               rc3 * self.weights[58] +
               rc4 * self.weights[59]
         )
+        r3 = (rc0 * self.weights[60] +
+              rc1 * self.weights[61] +
+              rc2 * self.weights[62] +
+              rc3 * self.weights[63] +
+              rc4 * self.weights[64]
+        )
 
-        if (r0 * self.weights[60]) > 0:
-            self.velocity_x += 0.001
-        if (r1 * self.weights[61]) > 0:
-            self.velocity_x -= 0.001
-        if (r2 * self.weights[62]) > 0:
-            self.velocity_y += 0.001
-        if (r3 * self.weights[63]) > 0:
-            self.velocity_y -= 0.001
+        if (r0 * self.weights[65]) > 0:
+            self.velocity_x += self.acceleration
+        if (r1 * self.weights[66]) > 0:
+            self.velocity_x -= self.acceleration
+        if (r2 * self.weights[67]) > 0:
+            self.velocity_y += self.acceleration
+        if (r3 * self.weights[68]) > 0:
+            self.velocity_y -= self.acceleration
 
     def physics_process(self):
         self.position_x += self.velocity_x
@@ -146,25 +152,36 @@ class Simulation:
         os.system("cls")
         print("Initializing")
         time.sleep(0.2)
-        self.entitys_quantity = 3000
+
+        self.entitys_quantity = 200
         self.entitys = []
+
         self.process_thread = None
         self.physics_process_thread = None
+
         self.generation = 0
+
         self.running = True
+
         self.target_x = 800
         self.target_y = 500
+
         self.lifetime = 5.0
+
         self.best_weights = []
         self.best_distance = 1000
+        self.best_entity = None
+
         os.system("cls")
         print("Initializing.")
         time.sleep(0.2)
 
         self.generate_entitys()
+
         os.system("cls")
         print("Initializing..")
         time.sleep(0.2)
+
         self.start_threads()
 
     def generate_entitys(self):
@@ -175,8 +192,10 @@ class Simulation:
     def start_threads(self):
         self.process_thread = threading.Thread(target=self.process_function)
         self.physics_process_thread = threading.Thread(target=self.physics_process_function)
+
         self.process_thread.start()
         self.physics_process_thread.start()
+
         self.render_function()
 
     def physics_process_function(self):
@@ -186,17 +205,17 @@ class Simulation:
 
     def render_function(self):
         while self.running:
-            positions = []
             window.fill((0, 0, 0))
             for ev in pygame.event.get():
                 if ev.type == pygame.QUIT:
                     self.running = False
+
             for entity in self.entitys:
-                if not (entity.position_x, entity.position_y) in positions:
-                    positions.append((entity.position_x, entity.position_y))
-                    entity.render()
+                entity.render()
+
             self.draw_hud()
             pygame.display.flip()
+
         pygame.quit()
         self.physics_process_thread.join()
         self.process_thread.join()
@@ -221,6 +240,8 @@ class Simulation:
                             self.entitys = []
                             self.lifetime = 5.0
                             self.generate_entitys()
+                        else:
+                            self.best_entity = entity
             self.lifetime -= 0.001
             if len(self.entitys) < 1 or self.lifetime <= 0:
                 self.entitys = []
