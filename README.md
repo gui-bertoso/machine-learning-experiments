@@ -1,3 +1,30 @@
-# Machine learn tests
+# 🤖 machine learning experiments
 
-Simulation and machine learning experiments in early version, but with a good foundation, including threads and basic optimizations.
+collection of experiments with machine learning concepts and models.
+
+---
+
+## 🚀 features
+
+- small ml experiments  
+- data processing tests  
+- learning-focused implementations  
+
+---
+
+## 🎯 goal
+
+understand core machine learning concepts through practice.
+
+---
+
+## ⚙️ stack
+
+- python
+- basic ml
+
+---
+
+## 📌 status
+
+study project
