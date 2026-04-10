@@ -1,10 +1,10 @@
-# 🤖 machine learning experiments
+# machine learning experiments
 
 collection of experiments with machine learning concepts and models.
 
 ---
 
-## 🚀 features
+## features
 
 - small ml experiments  
 - data processing tests  
@@ -12,19 +12,19 @@ collection of experiments with machine learning concepts and models.
 
 ---
 
-## 🎯 goal
+## goal
 
 understand core machine learning concepts through practice.
 
 ---
 
-## ⚙️ stack
+## stack
 
 - python
 - basic ml
 
 ---
 
-## 📌 status
+## status
 
 study project
