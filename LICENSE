@@ -1,24 +1,21 @@
-Copyright (c) 2025 Guilherme da Silva Bertoso. All rights reserved.
+MIT License
 
-This machine learning software, including all source code, models, datasets, and related materials, is proprietary and protected under applicable international copyright and intellectual property laws.
+Copyright (c) 2026 Guilherme da Silva Bertoso (patoLizo)
 
-Permission is granted to **view, run, and evaluate** this software solely for personal, educational, or internal non-commercial purposes.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Any other use, including but not limited to copying, modifying, redistributing, sublicensing, commercial exploitation, or incorporation into other projects or services, is strictly prohibited without explicit written permission from the author.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-This software is NOT open source.
-
-Strictly prohibited actions include, but are not limited to:
-
-- Copying, duplicating, or redistributing the source code, models, or datasets in whole or in part;
-- Modifying, adapting, or creating derivative works from this software;
-- Using this software or its components for commercial purposes without authorization;
-- Publishing, uploading, or mirroring this software on any external platform or repository.
-
-Violations of this license may result in legal action, including civil claims and DMCA takedown notices.
-
-For licensing inquiries, commercial use, or collaborations, please contact:
-
-Author: Guilherme da Silva Bertoso  
-Email: [guilhermedasilvabertoso@gmail.com]  
-Year: 2025
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
